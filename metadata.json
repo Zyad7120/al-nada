@@ -1,0 +1,6 @@
+{
+  "name": "متجر الندى للأدوات الصحية الفاخرة",
+  "description": "متجر ومصنع الندى للأدوات الصحية وصنابير المياه الفاخرة، أنظمة الدش، ومغاسل ومراحيض البورسلين الراقية مع الخزانة الرقمية لمالك المتجر aziad5386@gmail.com.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

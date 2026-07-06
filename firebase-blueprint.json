@@ -1,0 +1,196 @@
+{
+  "entities": {
+    "Product": {
+      "title": "Product",
+      "description": "A luxury product sold on the Al-Nada e-commerce website.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier of the product."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the product in Arabic."
+        },
+        "category": {
+          "type": "string",
+          "description": "Category of the product."
+        },
+        "price": {
+          "type": "number",
+          "description": "Current selling price in SAR."
+        },
+        "oldPrice": {
+          "type": "number",
+          "description": "Original price before discount in SAR (optional)."
+        },
+        "image": {
+          "type": "string",
+          "description": "URL or base64 data of the product image."
+        },
+        "description": {
+          "type": "string",
+          "description": "Short description of the product in Arabic."
+        },
+        "longDescription": {
+          "type": "string",
+          "description": "Detailed description of the product in Arabic."
+        },
+        "rating": {
+          "type": "number",
+          "description": "Product rating out of 5."
+        },
+        "reviewsCount": {
+          "type": "number",
+          "description": "Number of customer reviews."
+        },
+        "features": {
+          "type": "array",
+          "description": "List of key features or benefits in Arabic."
+        },
+        "specs": {
+          "type": "object",
+          "description": "Key-value specifications map."
+        },
+        "inStock": {
+          "type": "boolean",
+          "description": "Whether the product is in stock."
+        },
+        "isPopular": {
+          "type": "boolean",
+          "description": "Whether the product is flagged as popular."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when the product was created."
+        }
+      },
+      "required": ["name", "category", "price", "image", "description", "inStock"]
+    },
+    "Category": {
+      "title": "Category",
+      "description": "A product category on Al-Nada website.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Display name of the category in Arabic."
+        }
+      },
+      "required": ["name"]
+    },
+    "Setting": {
+      "title": "Setting",
+      "description": "Global website settings and configurations.",
+      "type": "object",
+      "properties": {
+        "phoneNumber": {
+          "type": "string",
+          "description": "Public contact phone number."
+        },
+        "workingHoursWeekdays": {
+          "type": "string",
+          "description": "Working hours for weekdays."
+        },
+        "workingHoursFriday": {
+          "type": "string",
+          "description": "Working hours for Friday."
+        },
+        "offers": {
+          "type": "array",
+          "description": "List of banner offers or promotions."
+        }
+      }
+    },
+    "Order": {
+      "title": "Order",
+      "description": "A customer order submitted via the shopping cart.",
+      "type": "object",
+      "properties": {
+        "orderNumber": {
+          "type": "string",
+          "description": "Unique order number."
+        },
+        "customerName": {
+          "type": "string",
+          "description": "Name of the customer."
+        },
+        "customerPhone": {
+          "type": "string",
+          "description": "Phone number of the customer."
+        },
+        "customerCity": {
+          "type": "string",
+          "description": "City for shipping."
+        },
+        "customerAddress": {
+          "type": "string",
+          "description": "Detailed shipping address."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when the order was placed."
+        },
+        "items": {
+          "type": "array",
+          "description": "Ordered items and details."
+        },
+        "status": {
+          "type": "string",
+          "description": "Status of the order."
+        }
+      },
+      "required": ["orderNumber", "customerName", "customerPhone"]
+    },
+    "Message": {
+      "title": "Message",
+      "description": "A direct contact message from a customer.",
+      "type": "object",
+      "properties": {
+        "customerName": {
+          "type": "string",
+          "description": "Name of the sender."
+        },
+        "customerPhone": {
+          "type": "string",
+          "description": "Phone number of the sender."
+        },
+        "message": {
+          "type": "string",
+          "description": "Content of the message."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when the message was sent."
+        }
+      },
+      "required": ["customerName", "customerPhone", "message"]
+    }
+  },
+  "firestore": {
+    "products/{productId}": {
+      "schema": "Product",
+      "description": "Collection of all products in Al-Nada luxury store."
+    },
+    "categories/{categoryId}": {
+      "schema": "Category",
+      "description": "Collection of dynamic product categories on the website."
+    },
+    "settings/{settingsId}": {
+      "schema": "Setting",
+      "description": "Collection storing website setting singletons like phone and working hours."
+    },
+    "orders/{orderId}": {
+      "schema": "Order",
+      "description": "Collection storing customer orders."
+    },
+    "messages/{messageId}": {
+      "schema": "Message",
+      "description": "Collection storing customer direct messages."
+    }
+  }
+}
